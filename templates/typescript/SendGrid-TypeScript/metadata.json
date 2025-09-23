@@ -1,0 +1,19 @@
+{
+    "defaultFunctionName": "SendGrid",
+    "description": "$SendGrid_description",
+    "name": "SendGrid",
+    "language": "TypeScript",
+    "category": [
+        "$temp_category_samples",
+        "$temp_category_dataProcessing"
+    ],
+    "categoryStyle": "other",
+    "enabledInTryMode": false,
+    "userPrompt": [
+        "to",
+        "from",
+        "subject",
+        "text",
+        "apiKey"
+    ]
+}

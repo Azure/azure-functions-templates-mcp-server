@@ -1,0 +1,13 @@
+﻿{
+  "defaultFunctionName": "DurableFunctionsOrchestratorTS",
+  "description": "$DurableFunctionsOrchestrator_description",
+  "name": "Durable Functions orchestrator",
+  "language": "TypeScript",
+  "category": [
+    "$temp_category_core",
+    "$temp_category_durableFunctions"
+  ],
+  "categoryStyle": "other",
+  "enabledInTryMode": false,
+  "userPrompt": []
+}
