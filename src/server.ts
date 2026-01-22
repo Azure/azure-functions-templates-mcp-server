@@ -391,6 +391,122 @@ const FILE_EXTENSION_MAP: Record<string, string> = {
   '.yaml': 'yaml'
 };
 
+// Common files that apply to all templates per language (not stored in template folders)
+// These are provided dynamically to avoid duplication across templates
+const LANGUAGE_COMMON_FILES: Record<string, Record<string, string>> = {
+  csharp: {
+    ".funcignore": `# Azure Functions deployment exclusions for C#
+# Exclude build artifacts and development files from deployment
+
+# Build outputs
+bin/
+obj/
+
+# IDE and tooling
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Local settings (contains secrets)
+local.settings.json
+
+# Source control
+.git/
+.gitignore
+
+# Test files
+**/[Tt]ests/
+*.Tests.csproj
+`
+  },
+  java: {
+    ".funcignore": `# Azure Functions deployment exclusions for Java
+# Exclude build artifacts and development files from deployment
+
+# Maven build output
+target/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Local settings (contains secrets)
+local.settings.json
+
+# Source control
+.git/
+.gitignore
+
+# Test files
+src/test/
+`
+  },
+  python: {
+    ".funcignore": `# Azure Functions deployment exclusions for Python
+# Exclude development files and local artifacts from deployment
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.python_packages/
+
+# IDE files
+.vscode/
+.idea/
+
+# Local settings (contains secrets)
+local.settings.json
+
+# Source control
+.git/
+.gitignore
+
+# Test files
+tests/
+test_*.py
+*_test.py
+`
+  },
+  typescript: {
+    ".funcignore": `# Azure Functions deployment exclusions for TypeScript
+# Exclude source files and development artifacts from deployment
+
+# Dependencies (reinstalled during deployment)
+node_modules/
+
+# TypeScript source (only deploy compiled JS)
+src/
+*.ts
+!*.d.ts
+tsconfig.json
+
+# IDE files
+.vscode/
+
+# Local settings (contains secrets)
+local.settings.json
+
+# Source control
+.git/
+.gitignore
+
+# Test files
+tests/
+*.test.ts
+*.spec.ts
+`
+  }
+};
+
 // Helper function to generate template descriptions for tool schema
 function generateTemplateDescriptions(language: string): string {
   const templates = VALID_TEMPLATES[language];
@@ -604,6 +720,16 @@ ${generateTemplateDescriptions('typescript')}`),
     }
     
     result += `\nTo get a specific file, call this tool again with the 'filePath' parameter set to one of the files listed above.`;
+    
+    // Add language-specific common files (like .funcignore)
+    const commonFiles = LANGUAGE_COMMON_FILES[language];
+    if (commonFiles && Object.keys(commonFiles).length > 0) {
+      result += `\n\n=== Common Files for ${language} (include with any template) ===\n`;
+      result += `The following files should be created alongside your template for production deployments:\n\n`;
+      for (const [fileName, fileContent] of Object.entries(commonFiles)) {
+        result += `=== ${fileName} ===\n${fileContent}\n`;
+      }
+    }
     
     return { 
       content: [{ 
@@ -943,11 +1069,25 @@ This indicates an internal error. Please verify the template exists.`
       }
     }
     
+    // Add language-specific common files (like .funcignore)
+    const commonFiles = LANGUAGE_COMMON_FILES[language];
+    if (commonFiles && Object.keys(commonFiles).length > 0) {
+      result += `---\n\n`;
+      result += `## Common Files for ${language} (include with any template)\n\n`;
+      result += `The following files should be created alongside your template for production deployments:\n\n`;
+      let fileNum = relativeFiles.length;
+      for (const [fileName, fileContent] of Object.entries(commonFiles)) {
+        fileNum++;
+        result += `## File ${fileNum}: \`${fileName}\`\n\n`;
+        result += `\`\`\`text\n${fileContent}\`\`\`\n\n`;
+      }
+    }
+    
     result += `---\n\n`;
     result += `**Template Ready for Use**\n`;
     result += `- Language: ${language}\n`;
     result += `- Template: ${template}\n`;
-    result += `- Files: ${relativeFiles.length}\n`;
+    result += `- Files: ${relativeFiles.length + (commonFiles ? Object.keys(commonFiles).length : 0)}\n`;
     result += `- You can copy and customize these files for your Azure Functions project\n`;
     
     return { 
