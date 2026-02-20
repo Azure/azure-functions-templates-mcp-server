@@ -3,21 +3,21 @@
 ## Server Information
 
 - **Name**: Azure Functions Templates MCP Server  
-- **Package**: manvir-templates-mcp-server
-- **NPM Package**: <https://www.npmjs.com/package/manvir-templates-mcp-server>
-- **Repository**: <https://github.com/manvkaur/azure-functions-templates-mcp-server>
+- **Package**: azure-functions-templates-mcp-server
+- **NPM Package**: <https://www.npmjs.com/package/azure-functions-templates-mcp-server>
+- **Repository**: <https://github.com/Azure/azure-functions-templates-mcp-server>
 - **Description**: Provides ready-to-use Azure Functions templates across 4 programming languages with 71+ templates covering major Azure services and trigger types
 
 ## Installation Command
 
 ```bash
-npm install -g manvir-templates-mcp-server
+npm install -g azure-functions-templates-mcp-server
 ```
 
 ## MCP Server Configuration
 
 **Transport Type**: stdio
-**Command**: `manvir-templates-mcp-server`
+**Command**: `azure-functions-templates-mcp-server`
 **Args**: `[]` (no additional arguments needed)
 
 ## Features Provided
@@ -47,8 +47,8 @@ npm install -g manvir-templates-mcp-server
 **Installation Verification**:
 
 ```bash
-npm install -g manvir-templates-mcp-server
-npm list -g manvir-templates-mcp-server
+npm install -g azure-functions-templates-mcp-server
+npm list -g azure-functions-templates-mcp-server
 ```
 
 **MCP Protocol Compliance**:
@@ -69,7 +69,7 @@ requirements.txt
 **MCP Inspector Testing**:
 
 ```bash
-$ npx @modelcontextprotocol/inspector manvir-templates-mcp-server
+$ npx @modelcontextprotocol/inspector azure-functions-templates-mcp-server
 [Opens web interface at http://localhost:5173 for interactive testing]
 ```
 

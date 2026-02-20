@@ -32,9 +32,9 @@ This addition enables developers to:
 
 **Server Configuration**:
 
-- **Package**: `manvir-templates-mcp-server` (published on npm)
+- **Package**: `azure-functions-templates-mcp-server` (published on npm)
 - **Transport**: stdio (local executable)
-- **Installation**: `npm install -g manvir-templates-mcp-server`
+- **Installation**: `npm install -g azure-functions-templates-mcp-server`
 - **Protocol**: Full MCP compliance with proper error handling
 
 **Template Coverage**:
@@ -48,7 +48,7 @@ This addition enables developers to:
 
 ### Testing
 
-- [x] Verified installation command works: `npm install -g manvir-templates-mcp-server`
+- [x] Verified installation command works: `npm install -g azure-functions-templates-mcp-server`
 - [x] Confirmed MCP protocol compliance with smoke testing
 - [x] Tested template generation functionality across all languages
 - [x] Validated command descriptions and metadata quality
@@ -83,11 +83,11 @@ This server provides immediate value to:
 ```json
 "azure-functions-templates": {
   "type": "stdio", 
-  "command": "manvir-templates-mcp-server",
+  "command": "azure-functions-templates-mcp-server",
   "args": [],
   "title": "Azure Functions Templates",
   "description": "Provides ready-to-use Azure Functions templates across 4 programming languages (C#, Java, Python, TypeScript) with 71+ templates covering major Azure services including Blob triggers, CosmosDB bindings, Event Hub processing, HTTP endpoints, Timer functions, Durable Functions, Service Bus messaging, and AI/ML integrations. Templates include complete project structures with dependencies, configuration files, and modern programming patterns following Azure Functions best practices. Accelerates development with production-ready code for Web APIs, Storage operations, Database integrations, Streaming data processing, Messaging systems, Scheduled tasks, and Real-time applications.",
-  "installInstructions": "The Azure Functions Templates MCP server is not installed. Install it using: npm install -g manvir-templates-mcp-server"
+  "installInstructions": "The Azure Functions Templates MCP server is not installed. Install it using: npm install -g azure-functions-templates-mcp-server"
 }
 ```
 
@@ -102,7 +102,7 @@ This server provides immediate value to:
 
 ### Features Added
 
-- Added support for Azure Functions Templates MCP tools when manvir-templates-mcp-server is installed locally - [[#ISSUE_NUMBER](https://github.com/microsoft/mcp/issues/ISSUE_NUMBER)]
+- Added support for Azure Functions Templates MCP tools when azure-functions-templates-mcp-server is installed locally - [[#ISSUE_NUMBER](https://github.com/microsoft/mcp/issues/ISSUE_NUMBER)]
 ```
 
 ## Post-Submission

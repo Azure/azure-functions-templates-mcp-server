@@ -1,6 +1,6 @@
 {
-  "name": "manvir-templates-mcp-server",
-  "version": "0.1.6",
+  "name": "azure-functions-templates-mcp-server",
+  "version": "0.2.0",
   "description": "An MCP server that provides ready-to-use Azure Functions templates across 4 programming languages with 71 templates covering all major Azure services and trigger types",
   "keywords": [
     "azure-functions",
@@ -10,15 +10,15 @@
     "azure",
     "model-context-protocol"
   ],
-  "author": "Manvir Kaur",
+  "author": "Microsoft",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manvkaur/azure-functions-templates-mcp-server.git"
+    "url": "git+https://github.com/Azure/azure-functions-templates-mcp-server.git"
   },
   "bugs": {
-    "url": "https://github.com/manvkaur/azure-functions-templates-mcp-server/issues"
+    "url": "https://github.com/Azure/azure-functions-templates-mcp-server/issues"
   },
-  "homepage": "https://github.com/manvkaur/azure-functions-templates-mcp-server#readme",
+  "homepage": "https://github.com/Azure/azure-functions-templates-mcp-server#readme",
   "type": "module",
   "main": "dist/src/server.js",
   "exports": {
@@ -36,7 +36,7 @@
     }
   },
   "bin": {
-    "manvir-templates-mcp-server": "dist/src/server.js"
+    "azure-functions-templates-mcp-server": "dist/src/server.js"
   },
   "license": "MIT",
   "engines": {
