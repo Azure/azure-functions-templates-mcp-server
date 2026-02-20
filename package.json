@@ -1,6 +1,6 @@
 {
-  "name": "manvir-templates-mcp-server",
-  "version": "0.1.6",
+  "name": "azure-functions-templates-mcp-server",
+  "version": "0.2.0",
   "description": "An MCP server that provides ready-to-use Azure Functions templates across 4 programming languages with 71 templates covering all major Azure services and trigger types",
   "keywords": [
     "azure-functions",
@@ -10,15 +10,15 @@
     "azure",
     "model-context-protocol"
   ],
-  "author": "Manvir Kaur",
+  "author": "Microsoft",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manvkaur/azure-functions-templates-mcp-server.git"
+    "url": "git+https://github.com/Azure/azure-functions-templates-mcp-server.git"
   },
   "bugs": {
-    "url": "https://github.com/manvkaur/azure-functions-templates-mcp-server/issues"
+    "url": "https://github.com/Azure/azure-functions-templates-mcp-server/issues"
   },
-  "homepage": "https://github.com/manvkaur/azure-functions-templates-mcp-server#readme",
+  "homepage": "https://github.com/Azure/azure-functions-templates-mcp-server#readme",
   "type": "module",
   "main": "dist/src/server.js",
   "exports": {
@@ -36,7 +36,7 @@
     }
   },
   "bin": {
-    "manvir-templates-mcp-server": "dist/src/server.js"
+    "azure-functions-templates-mcp-server": "dist/src/server.js"
   },
   "license": "MIT",
   "engines": {
@@ -71,10 +71,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
-    "@typescript-eslint/eslint-plugin": "^8.53.1",
-    "@typescript-eslint/parser": "^8.53.1",
     "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^9.39.2",
+    "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
@@ -82,8 +80,11 @@
     "prettier": "^3.8.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.53.1",
+    "typescript-eslint": "^8.20.0",
     "vitest": "^4.0.18"
+  },
+  "overrides": {
+    "minimatch": "^10.2.1"
   },
   "lint-staged": {
     "src/**/*.ts": [
