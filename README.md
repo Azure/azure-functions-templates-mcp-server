@@ -1,8 +1,7 @@
 # Azure Functions Create Triggers and Bindings MCP Server
 
-[![CI](https://github.com/manvkaur/azure-functions-templates-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/manvkaur/azure-functions-templates-mcp-server/actions/workflows/ci.yml)
-[![npm version](https://badge.fury.io/js/manvir-templates-mcp-server.svg)](https://www.npmjs.com/package/manvir-templates-mcp-server)
-[![codecov](https://codecov.io/gh/manvkaur/azure-functions-templates-mcp-server/branch/main/graph/badge.svg)](https://codecov.io/gh/manvkaur/azure-functions-templates-mcp-server)
+[![CI](https://github.com/Azure/azure-functions-templates-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/Azure/azure-functions-templates-mcp-server/actions/workflows/ci.yml)
+[![npm version](https://badge.fury.io/js/azure-functions-templates-mcp-server.svg)](https://www.npmjs.com/package/azure-functions-templates-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Model Context Protocol (MCP) server that provides ready-to-use Azure Functions templates across 4 programming languages with 71 templates covering all major Azure service bindings and trigger types. Templates include complete project structures, configuration files, and follow modern programming patterns for rapid development and deployment.
@@ -46,13 +45,13 @@ A Model Context Protocol (MCP) server that provides ready-to-use Azure Functions
 Install the published package globally:
 
 ```bash
-npm install -g manvir-templates-mcp-server
+npm install -g azure-functions-templates-mcp-server
 ```
 
 Or install locally in your project:
 
 ```bash
-npm install manvir-templates-mcp-server
+npm install azure-functions-templates-mcp-server
 ```
 
 **Verify installation:**
@@ -60,19 +59,19 @@ npm install manvir-templates-mcp-server
 #### Verify global installation
 
 ```bash
-npm list -g manvir-templates-mcp-server
+npm list -g azure-functions-templates-mcp-server
 ```
 
 #### Or verify local installation
 
 ```bash
-npm list manvir-templates-mcp-server
+npm list azure-functions-templates-mcp-server
 ```
 
 #### Or check that the executable is available in your PATH
 
 ```bash
-which manvir-templates-mcp-server
+which azure-functions-templates-mcp-server
 ```
 
 #### Run a smoke test to verify installation
@@ -91,7 +90,7 @@ npm run probe
 
 ```powershell
 # Clone and build from source
-git clone https://github.com/manvkaur/azure-functions-templates-mcp-server.git
+git clone https://github.com/Azure/azure-functions-templates-mcp-server.git
 cd azure-functions-templates-mcp-server
 npm install
 npm run build
@@ -104,13 +103,13 @@ npm run build
 **If installed globally:**
 
 ```bash
-manvir-templates-mcp-server
+azure-functions-templates-mcp-server
 ```
 
 **If installed locally:**
 
 ```bash
-npx manvir-templates-mcp-server
+npx azure-functions-templates-mcp-server
 ```
 
 **From source build:**
@@ -137,10 +136,10 @@ The [MCP Inspector](https://github.com/modelcontextprotocol/inspector) is a debu
 
 ```bash
 # If installed globally
-npx @modelcontextprotocol/inspector manvir-templates-mcp-server
+npx @modelcontextprotocol/inspector azure-functions-templates-mcp-server
 
 # If installed locally  
-npx @modelcontextprotocol/inspector npx manvir-templates-mcp-server
+npx @modelcontextprotocol/inspector npx azure-functions-templates-mcp-server
 ```
 
 ### Option 2: Using built from source
@@ -157,7 +156,7 @@ npx @modelcontextprotocol/inspector node dist/src/server.js
 npm install -g @modelcontextprotocol/inspector
 
 # Run with npm package
-mcp-inspector manvir-templates-mcp-server
+mcp-inspector azure-functions-templates-mcp-server
 
 # Or run with source build
 mcp-inspector node dist/src/server.js
@@ -178,7 +177,7 @@ You can use this MCP server with VS Code through GitHub Copilot or other MCP-com
 1. **Install the package globally:**
 
    ```bash
-   npm install -g manvir-templates-mcp-server
+   npm install -g azure-functions-templates-mcp-server
    ```
 
 2. **Configure in VS Code mcp.json settings:**
@@ -188,7 +187,7 @@ You can use this MCP server with VS Code through GitHub Copilot or other MCP-com
      "servers": {
        "azure-functions-create-triggers-bindings": {
          "type": "stdio",
-         "command": "manvir-templates-mcp-server"
+         "command": "azure-functions-templates-mcp-server"
        }
      }
    }
@@ -199,7 +198,7 @@ You can use this MCP server with VS Code through GitHub Copilot or other MCP-com
 1. **Install the package locally in your project:**
 
    ```bash
-   npm install manvir-templates-mcp-server
+   npm install azure-functions-templates-mcp-server
    ```
 
 2. **Configure in VS Code mcp.json settings:**
@@ -210,7 +209,7 @@ You can use this MCP server with VS Code through GitHub Copilot or other MCP-com
        "azure-functions-create-triggers-bindings": {
          "type": "stdio",
          "command": "npx",
-         "args": ["manvir-templates-mcp-server"]
+         "args": ["azure-functions-templates-mcp-server"]
        }
      }
    }
@@ -488,8 +487,8 @@ runtimeVersion: "22"
 
 - **Problem**: Command not found or server won't start
 - **Solution**:
-  - Verify installation: `npm list -g manvir-templates-mcp-server`
-  - Reinstall if needed: `npm install -g manvir-templates-mcp-server`
+  - Verify installation: `npm list -g azure-functions-templates-mcp-server`
+  - Reinstall if needed: `npm install -g azure-functions-templates-mcp-server`
   - Check Node.js version: `node --version` (requires 18+)
 
 #### Tools Not Available in MCP Client
@@ -499,7 +498,7 @@ runtimeVersion: "22"
   - Verify server configuration in your MCP client settings
   - Check that paths in client config are absolute
   - Ensure `npm run build` succeeded if building from source
-  - Test with MCP Inspector first: `npx @modelcontextprotocol/inspector manvir-templates-mcp-server`
+  - Test with MCP Inspector first: `npx @modelcontextprotocol/inspector azure-functions-templates-mcp-server`
 
 #### Template Retrieval Errors
 
@@ -528,14 +527,13 @@ npm run smoke
 Use MCP Inspector for interactive debugging:
 
 ```bash
-npx @modelcontextprotocol/inspector manvir-templates-mcp-server
+npx @modelcontextprotocol/inspector azure-functions-templates-mcp-server
 ```
 
 ### Support
 
-- **Issues**: Report bugs at [GitHub Issues](https://github.com/manvkaur/azure-functions-templates-mcp-server/issues)
-- **Discussions**: Ask questions in [GitHub Discussions](https://github.com/manvkaur/azure-functions-templates-mcp-server/discussions)
-- **Documentation**: Full documentation available in the [repository](https://github.com/manvkaur/azure-functions-templates-mcp-server)
+- **Issues**: Report bugs at [GitHub Issues](https://github.com/Azure/azure-functions-templates-mcp-server/issues)
+- **Documentation**: Full documentation available in the [repository](https://github.com/Azure/azure-functions-templates-mcp-server)
 
 ## Contributing
 
@@ -544,7 +542,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 ### Quick Start for Contributors
 
 ```bash
-git clone https://github.com/manvkaur/azure-functions-templates-mcp-server.git
+git clone https://github.com/Azure/azure-functions-templates-mcp-server.git
 cd azure-functions-templates-mcp-server
 npm install
 npm run build

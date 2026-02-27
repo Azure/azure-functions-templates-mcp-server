@@ -5,10 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.6] - Unreleased
+## [0.2.0] - 2026-02-19
 
 ### Changed
 
+- Moved repository to Azure organization (github.com/Azure/azure-functions-templates-mcp-server)
+- Updated author and branding to Microsoft
+- Updated all repository URLs to Azure organization
 - Split combined InputOutput binding templates into separate Input and Output folders
 - Standardized binding samples to use HTTP triggers
 - Added trigger usage notes to binding template READMEs
