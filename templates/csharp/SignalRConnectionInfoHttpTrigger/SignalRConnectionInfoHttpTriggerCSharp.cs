@@ -18,7 +18,7 @@ public class SignalRConnectionInfoHttpTriggerCSharp
     [Function("negotiate")]
     public HttpResponseData Negotiate(
         [HttpTrigger(AuthorizationLevel.AuthLevelValue, "post")] HttpRequestData req,
-        [SignalRConnectionInfoInput(HubName = "HubValue")] MyConnectionInfo connectionInfo)
+        [SignalRConnectionInfoInput(HubName = "HubValue", ConnectionStringSetting = "SignalRConnection")] MyConnectionInfo connectionInfo)
     {
         _logger.LogInformation("SignalR Connection URL = '{url}'", connectionInfo.Url);
 
