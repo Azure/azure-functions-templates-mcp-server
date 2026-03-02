@@ -112,8 +112,8 @@ Start here when creating a new Azure Functions project.
           .optional()
           .describe(
             `Optional runtime version for Java or TypeScript. ` +
-              `For Java: JDK version [${[...SUPPORTED_RUNTIMES.java.supported, ...SUPPORTED_RUNTIMES.java.preview].join(', ')}] (recommended: ${SUPPORTED_RUNTIMES.java.recommended}). ` +
-              `For TypeScript: Node.js version [${[...SUPPORTED_RUNTIMES.typescript.supported, ...SUPPORTED_RUNTIMES.typescript.preview].join(', ')}] (recommended: ${SUPPORTED_RUNTIMES.typescript.recommended}). ` +
+              `For Java: JDK version [${[...SUPPORTED_RUNTIMES.java.supported, ...SUPPORTED_RUNTIMES.java.preview].join(', ')}] (default: ${SUPPORTED_RUNTIMES.java.default}). ` +
+              `For TypeScript: Node.js version [${[...SUPPORTED_RUNTIMES.typescript.supported, ...SUPPORTED_RUNTIMES.typescript.preview].join(', ')}] (default: ${SUPPORTED_RUNTIMES.typescript.default}). ` +
               `When provided, placeholders like {{javaVersion}} or {{nodeVersion}} are replaced automatically.`
           ),
       },
@@ -179,8 +179,8 @@ For functions with multiple bindings: fetch 1 trigger + desired input/output bin
           .optional()
           .describe(
             `Optional runtime version for Java or TypeScript. ` +
-              `For Java: JDK version [${[...SUPPORTED_RUNTIMES.java.supported, ...SUPPORTED_RUNTIMES.java.preview].join(', ')}] (recommended: ${SUPPORTED_RUNTIMES.java.recommended}). ` +
-              `For TypeScript: Node.js version [${[...SUPPORTED_RUNTIMES.typescript.supported, ...SUPPORTED_RUNTIMES.typescript.preview].join(', ')}] (recommended: ${SUPPORTED_RUNTIMES.typescript.recommended}). ` +
+              `For Java: JDK version [${[...SUPPORTED_RUNTIMES.java.supported, ...SUPPORTED_RUNTIMES.java.preview].join(', ')}] (default: ${SUPPORTED_RUNTIMES.java.default}). ` +
+              `For TypeScript: Node.js version [${[...SUPPORTED_RUNTIMES.typescript.supported, ...SUPPORTED_RUNTIMES.typescript.preview].join(', ')}] (default: ${SUPPORTED_RUNTIMES.typescript.default}). ` +
               `When provided, placeholders like {{javaVersion}} or {{nodeVersion}} are replaced automatically.`
           ),
       },

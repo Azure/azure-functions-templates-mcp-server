@@ -4,6 +4,18 @@ This template demonstrates an Azure Function triggered by changes in MySQL datab
 
 ## Configuration
 
+### MySQL Connection Configuration
+
+The MySQL trigger requires a connection to your MySQL database. Configure the `MySqlConnection` setting:
+
+```json
+"MySqlConnection": "<MYSQL_CONNECTION>"
+```
+
+For more information on MySQL connections:
+
+- [MySQL bindings for Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-azure-mysql?tabs=isolated-process&pivots=programming-language-csharp)
+
 ### Host Storage Configuration
 
 The `AzureWebJobsStorage` setting is used by the Azure Functions runtime. By default, it uses Azurite for local development:

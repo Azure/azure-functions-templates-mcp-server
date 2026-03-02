@@ -125,7 +125,7 @@ export function validateRuntimeVersion(
     const previewNote = runtime.preview.length > 0 ? ` (preview: ${runtime.preview.join(', ')})` : '';
     return {
       valid: false,
-      error: `Invalid runtime version "${runtimeVersion}" for ${language}. Supported versions: ${runtime.supported.join(', ')}${previewNote}. Recommended: ${runtime.recommended}`,
+      error: `Invalid runtime version "${runtimeVersion}" for ${language}. Supported versions: ${runtime.supported.join(', ')}${previewNote}. Default: ${runtime.default}`,
       validVersions: allVersions,
     };
   }
