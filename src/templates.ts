@@ -22,41 +22,41 @@ export type ValidLanguage = (typeof VALID_LANGUAGES)[number];
  * @see https://learn.microsoft.com/azure/azure-functions/supported-languages
  */
 export const SUPPORTED_RUNTIMES = {
-  /** Last updated: January 2026 */
-  lastUpdated: '2026-01',
+  /** Last updated: March 2026 */
+  lastUpdated: '2026-03',
 
   python: {
     supported: ['3.10', '3.11', '3.12', '3.13'],
-    preview: [] as string[],
+    preview: ['3.14'],
     deprecated: ['3.8', '3.9'],
-    recommended: '3.11',
+    default: '3.11',
   },
   typescript: {
     // TypeScript runs on Node.js runtime
     supported: ['20', '22'],
     preview: ['24'],
     deprecated: ['18'],
-    recommended: '20',
+    default: '20',
   },
   java: {
     supported: ['8', '11', '17', '21'],
     preview: ['25'],
     deprecated: [] as string[],
-    recommended: '21',
+    default: '21',
     mavenMinVersion: '3.5',
     /** Maven compiler plugin version - check Maven Central for updates */
-    mavenCompilerPluginVersion: '3.8.1',
+    mavenCompilerPluginVersion: '3.15.0',
     /** Azure Functions Maven plugin version - check Maven Central for updates */
-    mavenPluginVersion: '1.37.0',
+    mavenPluginVersion: '1.40.0',
     /** Azure Functions Java library version - check Maven Central for updates */
-    javaLibraryVersion: '3.2.2',
+    javaLibraryVersion: '3.2.3',
   },
   csharp: {
     // .NET versions for isolated worker model
     supported: ['8', '9', '10'],
     preview: [] as string[],
     deprecated: ['6', '7'],
-    recommended: '8',
+    default: '8',
     // .NET Framework is also supported for Windows
     frameworkSupported: ['4.8.1'],
   },
@@ -183,7 +183,7 @@ export const LANGUAGE_INFO: Record<ValidLanguage, LanguageInfo> = {
     runtime: formatRuntimeVersions('python'),
     programmingModel: 'v2 programming model with @app decorators',
     prerequisites: [
-      `Python ${SUPPORTED_RUNTIMES.python.recommended} or later installed`,
+      `Python ${SUPPORTED_RUNTIMES.python.default} or later installed`,
       `Azure Functions Core Tools v${SUPPORTED_RUNTIMES.functionsRuntime}`,
       'Azure CLI (optional, for deployment)',
     ],
@@ -196,7 +196,7 @@ export const LANGUAGE_INFO: Record<ValidLanguage, LanguageInfo> = {
     runtime: formatRuntimeVersions('typescript'),
     programmingModel: 'Node.js v4 programming model with TypeScript',
     prerequisites: [
-      `Node.js ${SUPPORTED_RUNTIMES.typescript.recommended}.x or later installed`,
+      `Node.js ${SUPPORTED_RUNTIMES.typescript.default}.x or later installed`,
       `Azure Functions Core Tools v${SUPPORTED_RUNTIMES.functionsRuntime}`,
       'npm package manager',
       'Azure CLI (optional, for deployment)',
@@ -211,7 +211,7 @@ export const LANGUAGE_INFO: Record<ValidLanguage, LanguageInfo> = {
     runtime: formatRuntimeVersions('java'),
     programmingModel: 'Annotation-based with Maven build system',
     prerequisites: [
-      `JDK ${SUPPORTED_RUNTIMES.java.recommended} installed (${SUPPORTED_RUNTIMES.java.supported.join(', ')} supported)`,
+      `JDK ${SUPPORTED_RUNTIMES.java.default} installed (${SUPPORTED_RUNTIMES.java.supported.join(', ')} supported)`,
       `Apache Maven ${SUPPORTED_RUNTIMES.java.mavenMinVersion}+`,
       `Azure Functions Core Tools v${SUPPORTED_RUNTIMES.functionsRuntime}`,
       'Azure CLI (optional, for deployment)',
@@ -227,7 +227,7 @@ export const LANGUAGE_INFO: Record<ValidLanguage, LanguageInfo> = {
     runtime: formatRuntimeVersions('csharp'),
     programmingModel: 'Isolated worker process with dependency injection',
     prerequisites: [
-      `.NET ${SUPPORTED_RUNTIMES.csharp.recommended} SDK or later installed`,
+      `.NET ${SUPPORTED_RUNTIMES.csharp.default} SDK or later installed`,
       `Azure Functions Core Tools v${SUPPORTED_RUNTIMES.functionsRuntime}`,
       'Azure CLI (optional, for deployment)',
     ],
@@ -425,7 +425,7 @@ local.settings.json
       {
         name: 'nodeVersion',
         description: 'Node.js version for @types/node. Detect from user environment or ask preference.',
-        defaultValue: SUPPORTED_RUNTIMES.typescript.recommended,
+        defaultValue: SUPPORTED_RUNTIMES.typescript.default,
         validValues: [...SUPPORTED_RUNTIMES.typescript.supported, ...SUPPORTED_RUNTIMES.typescript.preview],
         source: 'SUPPORTED_RUNTIMES',
       },
@@ -500,7 +500,7 @@ src/test/
       {
         name: 'javaVersion',
         description: 'Java version for compilation and runtime. Detect from user environment or ask preference.',
-        defaultValue: SUPPORTED_RUNTIMES.java.recommended,
+        defaultValue: SUPPORTED_RUNTIMES.java.default,
         validValues: [...SUPPORTED_RUNTIMES.java.supported, ...SUPPORTED_RUNTIMES.java.preview],
         source: 'SUPPORTED_RUNTIMES',
       },

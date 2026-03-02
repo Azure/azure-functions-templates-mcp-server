@@ -254,12 +254,12 @@ describe('validateRuntimeVersion', () => {
     }
   });
 
-  it('should include recommended version in error message', () => {
+  it('should include default version in error message', () => {
     const result = validateRuntimeVersion('java', '999');
     expect(result.valid).toBe(false);
     if (!result.valid) {
-      expect(result.error).toContain('Recommended');
-      expect(result.error).toContain(SUPPORTED_RUNTIMES.java.recommended);
+      expect(result.error).toContain('Default');
+      expect(result.error).toContain(SUPPORTED_RUNTIMES.java.default);
     }
   });
 
