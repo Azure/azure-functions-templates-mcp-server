@@ -183,7 +183,7 @@ export const LANGUAGE_INFO: Record<ValidLanguage, LanguageInfo> = {
     runtime: formatRuntimeVersions('python'),
     programmingModel: 'v2 programming model with @app decorators',
     prerequisites: [
-      `Python ${SUPPORTED_RUNTIMES.python.default} or later installed`,
+      `Python ${SUPPORTED_RUNTIMES.python.supported.join(' or ')} installed (default ${SUPPORTED_RUNTIMES.python.default})`,
       `Azure Functions Core Tools v${SUPPORTED_RUNTIMES.functionsRuntime}`,
       'Azure CLI (optional, for deployment)',
     ],
@@ -196,7 +196,7 @@ export const LANGUAGE_INFO: Record<ValidLanguage, LanguageInfo> = {
     runtime: formatRuntimeVersions('typescript'),
     programmingModel: 'Node.js v4 programming model with TypeScript',
     prerequisites: [
-      `Node.js ${SUPPORTED_RUNTIMES.typescript.default}.x or later installed`,
+      `Node.js ${SUPPORTED_RUNTIMES.typescript.supported.join(' or ')} installed`,
       `Azure Functions Core Tools v${SUPPORTED_RUNTIMES.functionsRuntime}`,
       'npm package manager',
       'Azure CLI (optional, for deployment)',
@@ -227,7 +227,7 @@ export const LANGUAGE_INFO: Record<ValidLanguage, LanguageInfo> = {
     runtime: formatRuntimeVersions('csharp'),
     programmingModel: 'Isolated worker process with dependency injection',
     prerequisites: [
-      `.NET ${SUPPORTED_RUNTIMES.csharp.default} SDK or later installed`,
+      `.NET ${SUPPORTED_RUNTIMES.csharp.default} SDK installed (${SUPPORTED_RUNTIMES.csharp.supported.join(', ')} supported)`,
       `Azure Functions Core Tools v${SUPPORTED_RUNTIMES.functionsRuntime}`,
       'Azure CLI (optional, for deployment)',
     ],
