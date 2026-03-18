@@ -1,5 +1,14 @@
 import { app, InvocationContext } from "@azure/functions";
 
+// Metadata for the resource (as valid JSON string)
+const RESOURCE_METADATA = JSON.stringify({
+    author: "John Doe",
+    file: {
+        version: 1.0,
+        releaseDate: "2026-01-01"
+    }
+});
+
 /**
  * Azure Function that exposes a resource via MCP (Model Context Protocol).
  *
@@ -8,7 +17,7 @@ import { app, InvocationContext } from "@azure/functions";
  * that should be made available to AI consumers.
  */
 export async function mcpResourceFunction(
-    context: unknown,
+    resourceContext: unknown,
     invocationContext: InvocationContext
 ): Promise<string> {
     invocationContext.log("MCP Resource trigger function processed a request.");
@@ -17,14 +26,11 @@ export async function mcpResourceFunction(
 }
 
 // Register the MCP Resource trigger
-app.generic("mcpResourceFunction", {
-    trigger: {
-        type: "mcpResourceTrigger",
-        name: "context",
-        uri: "file://readme.md",
-        resourceName: "readme",
-        description: "Project README documentation",
-        mimeType: "text/plain",
-    },
+app.mcpResource("mcpResourceFunction", {
+    uri: "file://readme.md",
+    resourceName: "readme",
+    description: "Project README documentation",
+    mimeType: "text/plain",
+    metadata: RESOURCE_METADATA,
     handler: mcpResourceFunction,
 });
