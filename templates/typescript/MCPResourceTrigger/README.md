@@ -76,7 +76,7 @@ For production, configure identity-based connections:
 3. Run `npm install` to install dependencies
 4. Run `npm run build` to compile TypeScript
 5. Run `npm start` or `func start` to start the function locally
-5. Connect an MCP client to discover and access the resource
+6. Connect an MCP client to discover and access the resource
 
 ## Learn More
 

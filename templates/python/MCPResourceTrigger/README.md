@@ -9,6 +9,8 @@ The MCP Resource Trigger allows you to expose application resources (files, data
 ## How It Works
 
 ```python
+RESOURCE_METADATA = '{"author": "John Doe", "version": "1.0"}'
+
 @app.mcp_resource_trigger(
     arg_name="context",
     uri="file://readme.md",
