@@ -33,4 +33,5 @@ For production, configure identity-based connections:
 ## Local Development
 
 1. Install [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite) for local storage emulation
-2. Run `npm start` to start the function locally
+2. Run `npm install` to install dependencies
+3. Run `npm start` to start the function locally

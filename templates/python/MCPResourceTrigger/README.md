@@ -9,15 +9,17 @@ The MCP Resource Trigger allows you to expose application resources (files, data
 ## How It Works
 
 ```python
-@app.generic_trigger(
+RESOURCE_METADATA = '{"author": "John Doe", "version": "1.0"}'
+
+@app.mcp_resource_trigger(
     arg_name="context",
-    type="mcpResourceTrigger",
     uri="file://readme.md",
-    resourceName="readme",
+    resource_name="readme",
     description="Project README documentation",
-    mimeType="text/plain",
+    mime_type="text/plain",
+    metadata=RESOURCE_METADATA
 )
-def mcp_resource_function(context) -> str:
+def mcp_resource_function(context: func.MCPToolContext) -> str:
     return "Resource content here..."
 ```
 
@@ -25,10 +27,13 @@ def mcp_resource_function(context) -> str:
 
 | Property | Required | Description |
 |----------|----------|-------------|
-| `uri` | Yes | The unique identifier URI for the resource (e.g., `file://readme.md`, `https://...`) |
-| `resourceName` | Yes | A short name for the resource used by MCP clients |
-| `description` | Yes | Human-readable description of what the resource contains |
-| `mimeType` | Yes | The MIME type of the resource content (e.g., `text/plain`, `application/json`) |
+| `uri` | Yes | The unique identifier URI for the resource (e.g., `file://readme.md`, `config://settings`) |
+| `resource_name` | Yes | Human-readable name of the resource |
+| `description` | No | Optional description of what the resource contains |
+| `mime_type` | No | Optional MIME type (e.g., `text/plain`, `application/json`, `text/markdown`) |
+| `metadata` | No | Optional JSON-serialized metadata object for additional resource information |
+| `title` | No | Optional title for display purposes |
+| `size` | No | Optional size of the resource in bytes |
 
 ## Use Cases
 
@@ -51,21 +56,12 @@ For production, configure identity-based connections:
 
 - [Connecting to host storage with an identity](https://learn.microsoft.com/azure/azure-functions/functions-reference?tabs=blob&pivots=programming-language-python#connecting-to-host-storage-with-an-identity)
 
-### Extension Bundle Configuration
-
-The MCP Resource Trigger is not yet available in the production extension bundle. Until it is released, add the following setting to your `local.settings.json` (or App Settings in Azure) to use the staging bundle:
-
-```json
-"FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://cdn-staging.functions.azure.com/public"
-```
-
-> **Note**: This setting can be removed once the MCP Resource Trigger is available in the production extension bundle.
-
 ## Local Development
 
 1. Install [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite) for local storage emulation
-2. Run `func start` to start the function locally
-3. Connect an MCP client to discover and access the resource
+2. Ensure `azure-functions>=1.25.0b3` is in your `requirements.txt`
+3. Run `func start` to start the function locally
+4. Connect an MCP client to discover and access the resource
 
 ## Learn More
 

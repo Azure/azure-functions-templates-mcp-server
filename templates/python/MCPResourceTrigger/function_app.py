@@ -4,16 +4,25 @@ import azure.functions as func
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
+RESOURCE_METADATA = """
+        {
+            "author": "John Doe",
+            "file": {
+                "version": 1.0,
+                "releaseDate": "2026-01-01"
+            }
+        }
+        """
 
-@app.generic_trigger(
+@app.mcp_resource_trigger(
     arg_name="context",
-    type="mcpResourceTrigger",
     uri="file://readme.md",
-    resourceName="readme",
+    resource_name="readme",
     description="Project README documentation",
-    mimeType="text/plain",
+    mime_type="text/plain",
+    metadata=RESOURCE_METADATA
 )
-def mcp_resource_function(context) -> str:
+def mcp_resource_function(context: func.MCPToolContext) -> str:
     """
     A function that exposes a resource via MCP (Model Context Protocol).
 
