@@ -18,7 +18,7 @@ public class CosmosDBTriggerCSharp
     public void Run([CosmosDBTrigger(
         databaseName: "ToDoDb",
         containerName: "Items",
-        Connection = "ConnectionValue")] IReadOnlyList<MyDocument> input)
+        Connection = "CosmosDbConnection")] IReadOnlyList<MyDocument> input)
     {
         if (input != null && input.Count > 0)
         {
