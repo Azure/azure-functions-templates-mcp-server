@@ -20,7 +20,7 @@ For production, configure identity-based connections:
 
 ### Cosmos DB Connection Configuration
 
-The Cosmos DB binding requires a connection to your Cosmos DB account. Configure the connection in your settings:
+The Cosmos DB binding requires a connection to your Cosmos DB account. For production deployments, use managed identity-based connections instead of connection strings:
 
 - [Cosmos DB connections](https://learn.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb-v2-output?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cextensionv4&pivots=programming-language-javascript#connections)
 

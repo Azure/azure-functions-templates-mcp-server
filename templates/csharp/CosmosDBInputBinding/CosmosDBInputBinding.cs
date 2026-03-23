@@ -18,7 +18,7 @@ public class CosmosDBInputBinding
     public IActionResult DocByIdFromJSON(
     [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req,
     [CosmosDBInput(
-        databaseName: "ToDoItems",
+        databaseName: "ToDoDb",
         containerName: "Items",
         Connection  = "CosmosDbConnection",
         Id = "{Query.id}",

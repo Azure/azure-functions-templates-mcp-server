@@ -9,11 +9,11 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 @app.route(route="cosmosinput", methods=["GET"])
 @app.cosmos_db_input(
     arg_name="inputDocument",
-    database_name="MyDatabase",
-    collection_name="MyCollection",
+    database_name="ToDoDb",
+    container_name="Items",
     id="{Query.id}",
     partition_key="{Query.partitionKey}",
-    connection_string_setting="MyAccount_COSMOSDB",
+    connection="CosmosDbConnection",
 )
 def test_function(
     req: func.HttpRequest,

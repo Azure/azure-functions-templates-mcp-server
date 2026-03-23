@@ -19,7 +19,7 @@ public class DocByIdFromQueryString {
               methods = {HttpMethod.GET, HttpMethod.POST})
             HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
-              databaseName = "ToDoList",
+              databaseName = "ToDoDb",
               containerName = "Items",
               id = "{Query.id}",
               partitionKey = "{Query.partitionKeyValue}",

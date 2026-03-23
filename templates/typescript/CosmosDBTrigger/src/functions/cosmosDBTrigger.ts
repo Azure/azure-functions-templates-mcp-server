@@ -5,9 +5,8 @@ export async function cosmosDBTrigger(documents: unknown[], context: InvocationC
 }
 
 app.cosmosDB('cosmosDBTrigger', {
-    connectionStringSetting: 'CosmosDbConnection',
-    databaseName: 'database_name',
-    collectionName: 'container_name',
-    createLeaseCollectionIfNotExists: true,
+    connection: 'CosmosDbConnection',
+    databaseName: 'ToDoDb',
+    containerName: 'Items',
     handler: cosmosDBTrigger
 });
