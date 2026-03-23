@@ -1,11 +1,11 @@
 import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
 
 const cosmosInput = input.cosmosDB({
-    databaseName: 'ToDoItems',
-    collectionName: 'Items',
+    databaseName: 'ToDoDb',
+    containerName: 'Items',
     id: '{Query.id}',
     partitionKey: '{Query.partitionKeyValue}',
-    connectionStringSetting: 'CosmosDbConnection',
+    connection: 'CosmosDbConnection',
 });
 
 interface ToDoDocument {

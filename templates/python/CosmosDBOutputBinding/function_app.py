@@ -9,9 +9,9 @@ app = func.FunctionApp()
 @app.route(route="cosmosoutput", auth_level=func.AuthLevel.ANONYMOUS)
 @app.cosmos_db_output(
     arg_name="outputDocument",
-    database_name="MyDatabase",
-    collection_name="MyCollection",
-    connection_string_setting="CosmosDbConnection",
+    database_name="ToDoDb",
+    container_name="Items",
+    connection="CosmosDbConnection",
 )
 def test_function(
     req: func.HttpRequest,

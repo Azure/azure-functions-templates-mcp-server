@@ -12,11 +12,9 @@ public class CosmosDBTriggerFunction {
     public void run(
         @CosmosDBTrigger(
             name = "items",
-            databaseName = "ToDoList",
+            databaseName = "ToDoDb",
             containerName = "Items",
-            leaseContainerName="leases",
-            connection = "CosmosDbConnection",
-            createLeaseContainerIfNotExists = true
+            connection = "CosmosDbConnection"
         )
         List<Object> items,
         final ExecutionContext context

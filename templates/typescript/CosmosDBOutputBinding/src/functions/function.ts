@@ -1,9 +1,9 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from '@azure/functions';
 
 const cosmosOutput = output.cosmosDB({
-    databaseName: 'ToDoItems',
-    collectionName: 'Items',
-    connectionStringSetting: 'CosmosDbConnection',
+    databaseName: 'ToDoDb',
+    containerName: 'Items',
+    connection: 'CosmosDbConnection',
     createIfNotExists: true,
 });
 
