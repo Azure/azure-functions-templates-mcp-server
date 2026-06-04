@@ -1,5 +1,19 @@
 # Azure Functions Create Triggers and Bindings MCP Server
 
+## Archival Notice
+
+> [!IMPORTANT]
+> This repository has been archived and is no longer actively maintained.
+
+The contents of this repository have been moved to the following locations:
+
+- **Azure Functions MCP Tools**: [Azure.Mcp.Tools.Functions](https://github.com/microsoft/mcp/tree/main/tools/Azure.Mcp.Tools.Functions)
+- **Template Catalog**: [azure-functions-templates](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Template-Manifest)
+
+Please use the repositories above for the latest updates, ongoing development, and support.
+
+## Overview
+
 [![CI](https://github.com/Azure/azure-functions-templates-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/Azure/azure-functions-templates-mcp-server/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/azure-functions-templates-mcp-server.svg)](https://www.npmjs.com/package/azure-functions-templates-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
